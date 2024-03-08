@@ -1,20 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, StatusBar } from "react-native";
+import CatagoriesScreen from "./screens/CategoriesScreen";
+// import AndroidSafeArea from './components/AndroidSafeArea';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MealsOverViewScreen from "./screens/MealsOverviewScreen";
+import DetailScreen from "./screens/DetailScreen";
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // <AndroidSafeArea style={AndroidSafeArea.AndroidSafeArea}>
+    <>
+      <StatusBar barStyle={"light-content"} />
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="MealsCategories"
+          screenOptions={{
+            headerStyle: { backgroundColor: "#561C24" },
+            headerTintColor: "white",
+            contentStyle: { backgroundColor: "#C68484" },
+          }}
+        >
+          <Stack.Screen
+            name="MealsCategories"
+            component={CatagoriesScreen}
+            options={{
+              title: "All Categories",
+            }}
+          />
+          <Stack.Screen
+            name="MealsOverView"
+            component={MealsOverViewScreen}
+            // options={({ route, navigation }) => {
+            //   const catId = route.params.categoryId;
+            //   return {
+            //     title: catId,
+            //   };
+            // }}
+          />
+          <Stack.Screen name="DetailScreen" component={DetailScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
+    // </AndroidSafeArea>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  container: {},
 });
