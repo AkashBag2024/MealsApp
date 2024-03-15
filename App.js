@@ -1,5 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, StatusBar } from "react-native";
+import { StyleSheet, StatusBar, Button } from "react-native";
 import CatagoriesScreen from "./screens/CategoriesScreen";
 // import AndroidSafeArea from './components/AndroidSafeArea';
 import { NavigationContainer } from "@react-navigation/native";
@@ -40,7 +40,15 @@ export default function App() {
             //   };
             // }}
           />
-          <Stack.Screen name="DetailScreen" component={DetailScreen} />
+          <Stack.Screen
+            name="DetailScreen"
+            component={DetailScreen}
+            // options={{
+            //   headerRight: () => {
+            //     return <Button title="Tap me!" onPress={onPressHandler} />;
+            //   },
+            // }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>

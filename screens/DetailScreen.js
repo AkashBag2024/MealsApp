@@ -1,11 +1,4 @@
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  ScrollView,
-  Button,
-} from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
@@ -24,7 +17,13 @@ export default function DetailScreen({ route, navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <IconButton onPress={headerButtonHandler} />;
+        return (
+          <IconButton
+            icon={"staro"}
+            color={"white"}
+            onPress={headerButtonHandler}
+          />
+        );
       },
     });
   }, [navigation, headerButtonHandler]);

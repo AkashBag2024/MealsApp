@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet } from "react-native";
 import React from "react";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function IconButton({ icon, color, onPress }) {
   return (
@@ -8,7 +8,7 @@ export default function IconButton({ icon, color, onPress }) {
       onPress={onPress}
       style={({ pressed }) => pressed && styles.pressed}
     >
-      <FontAwesome5 name={icon} size={24} color={color} />
+      <AntDesign name={icon} size={24} color={color} />
     </Pressable>
   );
 }
